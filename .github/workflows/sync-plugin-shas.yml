@@ -1,0 +1,73 @@
+name: Sync plugin SHAs
+
+on:
+  schedule:
+    - cron: "0 12 * * 1-5" # weekdays at noon UTC
+  workflow_dispatch: # manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for SHA updates
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          UPDATED=false
+          SUMMARY=""
+
+          declare -A PLUGINS=(
+            ["dual-boot"]="ombulabs/claude-code_dual-boot-skill"
+            ["rails-load-defaults"]="ombulabs/claude-code_rails-load-defaults-skill"
+            ["rails-upgrade"]="ombulabs/claude-code_rails-upgrade-skill"
+          )
+
+          for PLUGIN in "${!PLUGINS[@]}"; do
+            REPO="${PLUGINS[$PLUGIN]}"
+            LATEST_SHA=$(gh api "repos/$REPO/commits/main" --jq .sha)
+
+            CURRENT_SHA=$(jq -r \
+              --arg name "$PLUGIN" \
+              '.plugins[] | select(.name == $name) | .source.sha' \
+              .claude-plugin/marketplace.json)
+
+            if [ "$LATEST_SHA" != "$CURRENT_SHA" ]; then
+              UPDATED=true
+              SHORT_OLD=$(echo "$CURRENT_SHA" | cut -c1-8)
+              SHORT_NEW=$(echo "$LATEST_SHA" | cut -c1-8)
+              SUMMARY="$SUMMARY- **$PLUGIN**: $SHORT_OLD -> $SHORT_NEW\n"
+
+              jq --arg name "$PLUGIN" \
+                 --arg sha "$LATEST_SHA" \
+                 '(.plugins[] | select(.name == $name) | .source.sha) = $sha' \
+                 .claude-plugin/marketplace.json > tmp.json \
+                 && mv tmp.json .claude-plugin/marketplace.json
+            fi
+          done
+
+          echo "updated=$UPDATED" >> "$GITHUB_OUTPUT"
+          echo "summary<<EOF" >> "$GITHUB_OUTPUT"
+          echo -e "$SUMMARY" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Create pull request
+        if: steps.check.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "Update plugin SHAs to latest main"
+          title: "Update plugin SHAs"
+          body: |
+            Automated SHA sync from upstream skill repos.
+
+            ## Changes
+
+            ${{ steps.check.outputs.summary }}
+          branch: chore/sync-plugin-shas
+          delete-branch: true
