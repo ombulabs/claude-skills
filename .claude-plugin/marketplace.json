@@ -9,7 +9,12 @@
       "name": "dual-boot",
       "description": "Dual-boot setup with next_rails gem for running two Rails/Ruby versions simultaneously",
       "category": "development",
-      "tags": ["rails", "ruby", "dual-boot", "upgrade"],
+      "tags": [
+        "rails",
+        "ruby",
+        "dual-boot",
+        "upgrade"
+      ],
       "source": {
         "source": "url",
         "url": "https://github.com/ombulabs/claude-code_dual-boot-skill.git",
@@ -20,7 +25,11 @@
       "name": "rails-load-defaults",
       "description": "Align Rails load_defaults across versions with safe, incremental config changes",
       "category": "development",
-      "tags": ["rails", "configuration", "upgrade"],
+      "tags": [
+        "rails",
+        "configuration",
+        "upgrade"
+      ],
       "source": {
         "source": "url",
         "url": "https://github.com/ombulabs/claude-code_rails-load-defaults-skill.git",
@@ -31,11 +40,16 @@
       "name": "rails-upgrade",
       "description": "Plan and execute Rails version upgrades following FastRuby.io methodology",
       "category": "development",
-      "tags": ["rails", "ruby", "upgrade", "migration"],
+      "tags": [
+        "rails",
+        "ruby",
+        "upgrade",
+        "migration"
+      ],
       "source": {
         "source": "url",
         "url": "https://github.com/ombulabs/claude-code_rails-upgrade-skill.git",
-        "sha": "470fe2380d91cc6dfb6bbdbf3bb0d5bae5794ad2"
+        "sha": "c2e0bb36dba8b7c817a008d667f3c80165572869"
       }
     }
   ]
