@@ -12,6 +12,15 @@ A Claude Code plugin marketplace for Rails upgrade tooling by [OmbuLabs.ai](http
 
 ## Installation
 
+**From inside the Claude Code CLI prompt (recommended):**
+
+```
+/plugin marketplace add ombulabs/claude-skills
+/plugin install <skill-name>@ombulabs-ai
+```
+
+**From your terminal:**
+
 ```bash
 # Add marketplace
 claude plugin marketplace add https://github.com/ombulabs/claude-skills.git
