@@ -17,9 +17,9 @@ A Claude Code plugin marketplace for Rails upgrade tooling by [OmbuLabs.ai](http
 claude plugin marketplace add https://github.com/ombulabs/claude-skills.git
 
 # Install skills
-claude plugin install dual-boot@ombulabs-skills
-claude plugin install rails-load-defaults@ombulabs-skills
-claude plugin install rails-upgrade@ombulabs-skills
+claude plugin install dual-boot@ombulabs-ai
+claude plugin install rails-load-defaults@ombulabs-ai
+claude plugin install rails-upgrade@ombulabs-ai
 ```
 
 ## Usage
