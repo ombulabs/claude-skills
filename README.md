@@ -26,9 +26,9 @@ claude plugin install rails-upgrade@ombulabs-ai
 
 After installation, skills are available as slash commands:
 
-- `/rails-upgrade:rails-upgrade` - Run a full Rails upgrade
-- `/dual-boot:dual-boot` - Set up dual-boot with next_rails
-- `/rails-load-defaults:rails-load-defaults` - Align load_defaults config
+- `/rails-upgrade` - Run a full Rails upgrade
+- `/dual-boot` - Set up dual-boot with next_rails
+- `/rails-load-defaults` - Align load_defaults config
 
 ## Dependency Chain
 
