@@ -18,7 +18,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/ombulabs/claude-code_dual-boot-skill.git",
-        "sha": "20f08ea6329563dadbb0967769452ae03f089c50"
+        "sha": "1547c1a3c63cc48a46d055778d44f47dc8894998"
       }
     },
     {
@@ -49,7 +49,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/ombulabs/claude-code_rails-upgrade-skill.git",
-        "sha": "cd72298fd759515f07176a36244bb217a8205d5b"
+        "sha": "773b897116f651a6de2f666a92eeb58ec5be8beb"
       }
     }
   ]
