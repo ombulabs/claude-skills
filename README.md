@@ -9,7 +9,7 @@ A Claude Code plugin marketplace for Rails upgrade tooling by [OmbuLabs.ai](http
 | **dual-boot** | Dual-boot setup with `next_rails` gem for running two Rails/Ruby versions simultaneously | [claude-code_dual-boot-skill](https://github.com/ombulabs/claude-code_dual-boot-skill) |
 | **rails-load-defaults** | Align `load_defaults` across Rails versions with safe, incremental config changes | [claude-code_rails-load-defaults-skill](https://github.com/ombulabs/claude-code_rails-load-defaults-skill) |
 | **rails-upgrade** | Plan and execute Rails version upgrades following FastRuby.io methodology | [claude-code_rails-upgrade-skill](https://github.com/ombulabs/claude-code_rails-upgrade-skill) |
-| **upgrade-cleanup** | Clean up after a Rails upgrade. Drops `NextRails.next?` branches, retires dual-boot scaffolding, triages deprecations | [claude-code_rails-upgrade-skill](https://github.com/ombulabs/claude-code_rails-upgrade-skill) (sibling plugin) |
+| **upgrade-cleanup** | Clean up after (or abandon) a Rails upgrade. Asks whether to keep the next or the current version, then drops `NextRails` branches and retires dual-boot scaffolding accordingly | [claude-code_rails-upgrade-skill](https://github.com/ombulabs/claude-code_rails-upgrade-skill) (sibling plugin) |
 
 ## Installation
 
@@ -40,7 +40,7 @@ After installation, skills are available as slash commands:
 - `/rails-upgrade` - Run a full Rails upgrade
 - `/dual-boot` - Set up dual-boot with next_rails
 - `/rails-load-defaults` - Align load_defaults config
-- `/upgrade-cleanup` - Finish an upgrade by removing dual-boot scaffolding and triaging deprecations
+- `/upgrade-cleanup` - Finish or abandon an upgrade by removing dual-boot scaffolding (asks whether to keep the next or the current version)
 
 ## Dependency Chain
 
