@@ -49,7 +49,25 @@
       "source": {
         "source": "url",
         "url": "https://github.com/ombulabs/claude-code_rails-upgrade-skill.git",
-        "sha": "773b897116f651a6de2f666a92eeb58ec5be8beb"
+        "sha": "903cd29bbf0099dc983c23661c5e5757bd811457"
+      }
+    },
+    {
+      "name": "upgrade-cleanup",
+      "description": "Clean up after (or abandon) a Rails upgrade. Asks whether to keep the next or the current version, then drops NextRails branches and retires dual-boot scaffolding accordingly.",
+      "category": "development",
+      "tags": [
+        "rails",
+        "ruby",
+        "upgrade",
+        "cleanup",
+        "next_rails"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/ombulabs/claude-code_rails-upgrade-skill.git",
+        "path": "upgrade-cleanup",
+        "sha": "903cd29bbf0099dc983c23661c5e5757bd811457"
       }
     }
   ]

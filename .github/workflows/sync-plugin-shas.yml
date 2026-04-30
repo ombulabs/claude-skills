@@ -27,11 +27,17 @@ jobs:
             ["dual-boot"]="ombulabs/claude-code_dual-boot-skill"
             ["rails-load-defaults"]="ombulabs/claude-code_rails-load-defaults-skill"
             ["rails-upgrade"]="ombulabs/claude-code_rails-upgrade-skill"
+            ["upgrade-cleanup"]="ombulabs/claude-code_rails-upgrade-skill"
           )
+
+          declare -A REPO_SHAS=()
 
           for PLUGIN in "${!PLUGINS[@]}"; do
             REPO="${PLUGINS[$PLUGIN]}"
-            LATEST_SHA=$(gh api "repos/$REPO/commits/main" --jq .sha)
+            if [ -z "${REPO_SHAS[$REPO]:-}" ]; then
+              REPO_SHAS[$REPO]=$(gh api "repos/$REPO/commits/main" --jq .sha)
+            fi
+            LATEST_SHA="${REPO_SHAS[$REPO]}"
 
             CURRENT_SHA=$(jq -r \
               --arg name "$PLUGIN" \
