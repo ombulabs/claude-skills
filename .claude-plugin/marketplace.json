@@ -49,7 +49,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/ombulabs/claude-code_rails-upgrade-skill.git",
-        "sha": "affd95132f374277219905d3f05ad3c1494e57bf"
+        "sha": "4c5faed4d371e4a27e1ac5588f0ac8c8997c51f9"
       }
     },
     {
@@ -67,7 +67,7 @@
         "source": "git-subdir",
         "url": "https://github.com/ombulabs/claude-code_rails-upgrade-skill.git",
         "path": "upgrade-cleanup",
-        "sha": "affd95132f374277219905d3f05ad3c1494e57bf"
+        "sha": "4c5faed4d371e4a27e1ac5588f0ac8c8997c51f9"
       }
     }
   ]
