@@ -23,9 +23,13 @@ jobs:
           UPDATED=false
           SUMMARY=""
 
+          # Only plugins pinned by SHA belong here. rails-load-defaults is
+          # pinned by tag (source.ref) and released manually, so it is excluded:
+          # this job reads .source.sha, which is absent for tag-pinned entries,
+          # and would re-add a sha pointing at main HEAD on every run.
+          # See RELEASING.md in that repo.
           declare -A PLUGINS=(
             ["dual-boot"]="ombulabs/claude-code_dual-boot-skill"
-            ["rails-load-defaults"]="ombulabs/claude-code_rails-load-defaults-skill"
             ["rails-upgrade"]="ombulabs/claude-code_rails-upgrade-skill"
             ["upgrade-cleanup"]="ombulabs/claude-code_rails-upgrade-skill"
           )
